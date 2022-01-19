@@ -53,9 +53,12 @@ public class UserResource {
    @PutMapping("/User/update/{idUser}")
    public ResponseEntity<?> update (@RequestBody User user, @PathVariable Integer idUser){
 	   try {
-		
+		   User userExist = service.get(idUser);
+		   userExist.setName(user.getName());	
+		   userExist.setlastName(user.getName());
+		   userExist.setEmail(user.getEmail());
 		   
-		   service.save(user);
+		   service.save(userExist);
 		   
 		   return new ResponseEntity<>(HttpStatus.OK);
 	   }catch (NoSuchElementException e) {
