@@ -60,9 +60,9 @@ public class UserResource {
 		   
 		   service.save(userExist);
 		   
-		   return new ResponseEntity<>(HttpStatus.OK);
-	   }catch (NoSuchElementException e) {
-		   return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		   return new ResponseEntity<>(HttpStatus.OK);// status de http do try (ok, encontrou)
+	   }catch (NoSuchElementException e) { 
+		   return new ResponseEntity<>(HttpStatus.NOT_FOUND);// status de http do catch, na tentativa, nao encontrou
 	   }
 }
 }
